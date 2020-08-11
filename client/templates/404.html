@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ super() }}
+    Error 404
+{% endblock %}
+
+
+{% block content %}
+
+    <div class="container" style="margin-bottom: 40px; margin-top: 40px;">
+
+        <h2 > Pagina no encontrada </h2>
+
+        <h3> {{ error }} </h3>
+    
+    </div>
+
+{% endblock %}

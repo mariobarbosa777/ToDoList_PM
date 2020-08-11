@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% import 'macros.html' as macros %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block title %}
+    {{ super() }}
+    Bienvenido
+{% endblock %}
+
+
+{% block content %}
+
+    <div class="jumbotron">
+        <div class="container">
+            <h1 style="text-align: center" >
+                Bienvenido a My To Do List, {{ username | capitalize }}
+            </h1>
+        </div>
+    </div>
+
+    <div class="container text-center" style="margin-bottom: 40px;">
+        <h1></h1>
+    </div>
+
+    <div class="container">
+        <h2> Crear una nueva tarea</h2>
+        {{ wtf.quick_form(todo_form) }}
+    </div>
+
+
+    <div class="container">
+
+        <!-- Card deck -->
+        <div class="card-deck row">
+        
+
+            {% for todo in todos %}
+                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 ">
+                    <div class="card bg-light mb-3">
+                        {{ macros.render_todo(todo, edit_forms, delete_forms , loop.index0 ) }} 
+                    </div>
+                </div>
+            {% endfor %}
+
+        </div>
+    </div>
+
+    <div class="container"></div>
+
+        {% if todos|length > 0 %}
+            <a href="{{ url_for('download') }}" class="btn btn-info" role="button">Descargar Todos</a>
+        {% endif %}
+
+    </div>
+
+
+
+{% endblock %}
