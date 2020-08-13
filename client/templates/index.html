@@ -1,58 +1,84 @@
-{% extends 'base.html' %}
-{% import 'macros.html' as macros %}
-{% import 'bootstrap/wtf.html' as wtf %}
+{% extends 'base.html' %} {% import 'macros.html' as macros %} {% import 'bootstrap/wtf.html' as wtf %} {% block title %} {{ super() }} Bienvenido {% endblock %} {% block content %}
 
-{% block title %}
-    {{ super() }}
-    Bienvenido
-{% endblock %}
+<div class="jumbotron">
+    <div class="container">
+        <h1 style="text-align: center">
+            Bienvenido a My To Do List, {{ username | capitalize }}
+        </h1>
+    </div>
+</div>
 
+<div class="container text-center" style="margin-bottom: 40px;">
+    <h1></h1>
+</div>
 
-{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-xs-4">
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop">
+                Nueva tarea <i class="fas fa-plus"></i>
+            </button>
 
-    <div class="jumbotron">
-        <div class="container">
-            <h1 style="text-align: center" >
-                Bienvenido a My To Do List, {{ username | capitalize }}
-            </h1>
         </div>
     </div>
 
-    <div class="container text-center" style="margin-bottom: 40px;">
-        <h1></h1>
-    </div>
-
-    <div class="container">
-        <h2> Crear una nueva tarea</h2>
-        {{ wtf.quick_form(todo_form) }}
-    </div>
-
-
-    <div class="container">
-
-        <!-- Card deck -->
-        <div class="card-deck row">
-        
-
-            {% for todo in todos %}
-                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 ">
-                    <div class="card bg-light mb-3">
-                        {{ macros.render_todo(todo, edit_forms, delete_forms , loop.index0 ) }} 
-                    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Crear una nueva tarea</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
-            {% endfor %}
-
+                <div class="modal-body">
+                    {{ wtf.quick_form(todo_form) }}
+                </div>
+            </div>
         </div>
     </div>
 
-    <div class="container"></div>
-
-        {% if todos|length > 0 %}
-            <a href="{{ url_for('download') }}" class="btn btn-info" role="button">Descargar Todos</a>
-        {% endif %}
-
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-4">
+            <h2 class="columnTitle">To Do</h2>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+            <h2 class="columnTitle">Doing</h2>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+            <h2 class="columnTitle">Done</h2>
+        </div>
     </div>
 
+    <div class="row">
+
+        <!-- Columna To Do -->
+        <div class="col-xs-12 col-sm-6 col-md-4">
+            {% for todo in todos %} {{ macros.render_todo(todo, edit_forms, delete_forms , loop.index0 ) }} {% endfor %}
+        </div>
+
+        <!-- Columna Doing -->
+        <div class="col-xs-12 col-sm-6 col-md-4">
+            {% for todo in todos %} {{ macros.render_todo(todo, edit_forms, delete_forms , loop.index0 ) }} {% endfor %}
+        </div>
+
+        <!-- Columna Done -->
+        <div class="col-xs-12 col-sm-6 col-md-4">
+            {% for todo in todos %} {{ macros.render_todo(todo, edit_forms, delete_forms , loop.index0 ) }} {% endfor %}
+        </div>
+
+
+    </div>
+</div>
+
+<div class="container"></div>
+
+{% if todos|length > 0 %}
+<a href="{{ url_for('download') }}" class="btn btn-info" role="button">Descargar Todos</a> {% endif %}
+
+</div>
 
 
 {% endblock %}
