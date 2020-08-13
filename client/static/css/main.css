@@ -1,0 +1,21 @@
+.card{
+    margin: 5% 0%;
+  }
+  
+  .card-body{
+    margin: 0% 0% 0% 3%;
+    padding: 6% 0%;
+  }
+
+  .footer {
+    background-color: #525C6F;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 30px;
+    
+  }
+
+  .footer h4, p, small {
+    color: white;
+  }
