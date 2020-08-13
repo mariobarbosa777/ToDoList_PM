@@ -86,9 +86,19 @@
 </div>
 
 {% if todos|length > 0 %}
-<a href="{{ url_for('download') }}" class="btn btn-info" role="button">
-    Descargar Todos
-</a> 
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-4" style="padding-left: 35%; margin-bottom: 50px;">
+            <!-- Button trigger modal -->
+            <a href="{{ url_for('download') }}" role="button">
+            <button type="button" class="btn btn-primary"  style="width: 200%; height: 150%;">
+                Descargar My Todo List
+            </button>
+            </a>
+        </div>
+    </div>
+</div>
 {% endif %}
 
 </div>
