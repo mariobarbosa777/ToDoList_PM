@@ -6,16 +6,16 @@ from werkzeug.datastructures import MultiDict
 from flask import Markup
 
 class LoginForm(FlaskForm):
-    username = StringField('Nombre de usuario', validators=[DataRequired()])
-    password = PasswordField('Password', validators=[DataRequired()])
-    submit = SubmitField('Enviar')
+    username = StringField('Nombre de Usuario', validators=[DataRequired()])
+    password = PasswordField('Contraseña', validators=[DataRequired()])
+    submit = SubmitField('ENVIAR')
 
 class SignUpForm(FlaskForm):
     email = EmailField('Correo', validators=[DataRequired(), Email("Ingrese su correo electronico")])
-    username = StringField('Nombre de usuario', validators=[DataRequired()])
+    username = StringField('Nombre de Usuario', validators=[DataRequired()])
     password = PasswordField('Contraseña', validators=[DataRequired()])
     confirm = PasswordField('Repita su contraseña', validators=[DataRequired()])
-    submit = SubmitField('Enviar')
+    submit = SubmitField('ENVIAR')
 
 class Todoform(FlaskForm):
     title = StringField('Titulo', validators=[DataRequired()])
