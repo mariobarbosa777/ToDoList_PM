@@ -15,14 +15,16 @@
                 </a>
             </div>
             <div class="col-md-4">
+                <a >
                 <!-- <i class="far fa-trash-alt"></i> -->
                 {{ wtf.quick_form( delete_forms[index]) }}
+                </a>
             </div>
         </div>
 
     </div>
     <div class="card-body">
-        <p class="card-text">{{ todo["description"] }}.</p>
+        <p class="card-text" style="color: #525C6F;"> {{ todo["description"] }}</p>
     </div>
     <div class="card-footer">
         <div class="row">

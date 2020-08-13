@@ -14,9 +14,9 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-xs-4">
+        <div class="col-xs-4" style="padding-left: 40%; margin-bottom: 50px;">
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop" style="width: 200%; height: 150%;">
                 Nueva tarea <i class="fas fa-plus"></i>
             </button>
 
@@ -56,17 +56,29 @@
 
         <!-- Columna To Do -->
         <div class="col-xs-12 col-sm-6 col-md-4">
-            {% for todo in todos %} {{ macros.render_todo(todo, edit_forms, delete_forms , loop.index0 ) }} {% endfor %}
+            {% for todo in todos %} 
+                {% if todo["status"] == "To Do" %}
+                    {{ macros.render_todo(todo, edit_forms, delete_forms , loop.index0 ) }} 
+                {% endif %}
+            {% endfor %}
         </div>
 
         <!-- Columna Doing -->
         <div class="col-xs-12 col-sm-6 col-md-4">
-            {% for todo in todos %} {{ macros.render_todo(todo, edit_forms, delete_forms , loop.index0 ) }} {% endfor %}
+            {% for todo in todos %} 
+                {% if todo["status"] == "Doing" %}
+                    {{ macros.render_todo(todo, edit_forms, delete_forms , loop.index0 ) }} 
+                {% endif %}
+            {% endfor %}
         </div>
 
         <!-- Columna Done -->
         <div class="col-xs-12 col-sm-6 col-md-4">
-            {% for todo in todos %} {{ macros.render_todo(todo, edit_forms, delete_forms , loop.index0 ) }} {% endfor %}
+            {% for todo in todos %} 
+                {% if todo["status"] == "Done" %}
+                    {{ macros.render_todo(todo, edit_forms, delete_forms , loop.index0 ) }} 
+                {% endif %}
+            {% endfor %}
         </div>
 
 

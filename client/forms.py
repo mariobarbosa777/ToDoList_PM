@@ -3,7 +3,7 @@ from wtforms.fields import StringField, PasswordField, SubmitField, SelectField,
 from wtforms.fields.html5 import EmailField, DateField
 from wtforms.validators import DataRequired, Email, EqualTo, Optional
 from werkzeug.datastructures import MultiDict
-
+from flask import Markup
 
 class LoginForm(FlaskForm):
     username = StringField('Nombre de usuario', validators=[DataRequired()])
