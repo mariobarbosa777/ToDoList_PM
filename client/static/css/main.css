@@ -1,8 +1,8 @@
-.card{
+.card {
     margin: 5% 0%;
-  }
-  
-  .card-body{
+}
+
+.card-body {
     margin: 0% 0% 0% 3%;
     padding: 6% 0%;
   }
@@ -20,3 +20,42 @@
   .footer h4, p, small {
     color: white;
   }
+
+.card-header {
+    background-color: #525C6F;
+}
+
+.card-header strong {
+    color: #FAFAFA;
+}
+
+.card-body {
+    background-color: #FAFAFA;
+}
+
+.far {
+    color: #ED696B;
+}
+
+.far:hover {
+    color: #C13739;
+}
+
+.btn-primary {
+    background-color: #ED696B;
+    border-color: #ED696B;
+}
+
+.btn-primary:hover {
+    background-color: #C13739;
+    border-color: #C13739;
+}
+
+.btn-primary:active {
+    background-color: #C13739;
+    border-color: #C13739;
+}
+
+.columnTitle {
+    padding-top: 20px;
+}
