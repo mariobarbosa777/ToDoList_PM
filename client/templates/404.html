@@ -1,19 +1,194 @@
-{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@1,900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="estilosTask.css">
+    <title>Finissh404</title>
+</head>
+<style>
+*,:before, :after {
+  box-sizing: border-box;
+}
 
-{% block title %}
-    {{ super() }}
-    Error 404
-{% endblock %}
+body {
+  display: flex;
+  align-items: center;
+  background: #FAFAFA;
+  min-width: 275px;
+  height: 100vh;
+  margin: 0 10vw;
+  overflow: hidden;
+  color: #525C6F;
+  font-family: 'Barlow';
+}
+
+.wrapper {
+  flex-grow: 2;
+  width: 40vw;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+h1 {
+  margin: 0;
+  font-size: 7em;
+  font-weight: 100;
+}
+
+p {
+  width: 95%;
+  font-size: 1.5em;
+  line-height: 1.4;
+}
+
+.buttons {
+  white-space: nowrap;
+  display: inline-block;
+}
+
+span {
+  display: block;
+  text-transform: uppercase;
+  color: #525C6F;
+  letter-spacing: 1.5px;
+  text-align: center;
+}
+
+a {
+  display: inline-block;
+  padding: 0.8em 1em;
+  margin-right: 1em;
+  margin-bottom: 1em;
+  border: 3px solid #ED696B;
+  color: #525C6F;
+  font-weight: 500;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 0.2em;
+  position: relative;
+  overflow: hidden;
+  transition: 0.3s;
+}
+a:hover {
+  color: #525C6F;
+}
+a:hover:before {
+  top: 0;
+}
+a:before {
+  content: "";
+  background: #ED696B;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: -100%;
+  left: 0;
+  transition: 0.3s;
+  z-index: -1;
+}
+
+.space {
+  width: 75px;
+  height: calc(50vh + 37.5px);
+  border-top-left-radius: 37.5px;
+  border-top-right-radius: 37.5px;
+  overflow: hidden;
+  margin: calc(50vh - 37.5px) auto 0 auto;
+  position: relative;
+  pointer-events: none;
+}
+
+.blackhole {
+    border: 5px solid #ED696B;
+    height: 75px;
+    width: 75px;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+.blackhole:after {
+  content: "";
+  height: calc(100% + 10px);
+  width: calc(100% + 10px);
+  border: 5px solid #ED696B;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  z-index: 5;
+  transform: rotate(45deg);
+}
+
+.ship {
+  height: 150px;
+  width: 55px;
+  margin-left: 10px;
+  background: url("https://img.icons8.com/flat_round/64/000000/list.png") center/contain no-repeat;
+  animation: blackhole 4s infinite linear;
+  position: absolute;
+  bottom: -150px;
+}
+
+@keyframes blackhole {
+  to {
+    transform: translateY(-100vh);
+  }
+}
+@media (max-width: 600px) {
+  body {
+    margin: 0 5vw;
+  }
+}
+/* footer */
+.body {
+    margin:0;
+    }
+
+    #footer{
+      border-top: solid #ED696B;
+      border-width: 15px;
+      background: #FAFAFA;
+      position:absolute;
+      bottom:0;
+      height:100%;
+      width:100%;
+      height:120px;
+    }
 
 
-{% block content %}
 
-    <div class="container" style="margin-bottom: 40px; margin-top: 40px;">
+    .image {
+      font-size: 20px;
+      text-align: center;
+      margin-top: -6px;
+    }
 
-        <h2 > Pagina no encontrada </h2>
+</style>
+</head>
+<body>
+    <div class="wrapper">
+        <h1>404</h1>
+        <p>Page Not Found</p>
+        <div class="buttons"><a href="#">back</a><a href="#">home</a><br/><span></span></div>
+      </div>
+      <div class="space">
+        <div class="blackhole"></div>
+        <div class="ship"></div>
+      </div>
+      <body class="body">
+        <footer id="footer">
+          <h1 class="text"></h1>
+          <br>
+          <h2 class="image">&copy;	<img src="https://javandresmoreno.github.io/DailyTask/assets/logos/daily-task.svg"</h2>
 
-        <h3> {{ error }} </h3>
-    
-    </div>
+        </footer>
+        </body>
 
-{% endblock %}
+</body>
+</html>
